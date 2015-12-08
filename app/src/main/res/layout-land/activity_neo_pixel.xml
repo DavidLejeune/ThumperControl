@@ -12,80 +12,80 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="N"
-        android:id="@+id/textView11"
+        android:id="@+id/lblN"
+        android:textColor="#dd3939"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView12"
-        android:textColor="#dd3939" />
+        android:layout_alignStart="@+id/barRed"
+        android:layout_marginStart="19dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="e"
-        android:id="@+id/textView12"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView13"
-        android:textColor="#e1df36" />
+        android:id="@+id/lblE"
+        android:textColor="#e1df36"
+        android:layout_above="@+id/textView24"
+        android:layout_toEndOf="@+id/lblN" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="o"
-        android:id="@+id/textView13"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView18"
-        android:textColor="#362f57" />
+        android:id="@+id/lblO"
+        android:textColor="#362f57"
+        android:layout_above="@+id/textView24"
+        android:layout_toEndOf="@+id/lblE" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="P"
-        android:id="@+id/textView18"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView19" />
+        android:id="@+id/lblP"
+        android:layout_above="@+id/textView24"
+        android:layout_toEndOf="@+id/lblO" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="i"
-        android:id="@+id/textView19"
+        android:id="@+id/lblI"
+        android:textColor="#a08178"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView20"
-        android:textColor="#a08178" />
+        android:layout_toEndOf="@+id/lblP" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="x"
-        android:id="@+id/textView20"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView21"
-        android:textColor="#fa041d" />
+        android:id="@+id/lblX"
+        android:textColor="#fa041d"
+        android:layout_above="@+id/textView24"
+        android:layout_toEndOf="@+id/lblI" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="e"
-        android:id="@+id/textView21"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView22"
-        android:textColor="#6a02fc" />
+        android:id="@+id/lblE2"
+        android:textColor="#6a02fc"
+        android:layout_above="@+id/textView24"
+        android:layout_toEndOf="@+id/lblX" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="l"
-        android:id="@+id/textView22"
+        android:id="@+id/lblL"
+        android:textColor="#96d767"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="96dp"
-        android:textColor="#96d767" />
+        android:layout_toEndOf="@+id/lblE2" />
 
     <TextView
         android:layout_width="150dp"
@@ -94,7 +94,7 @@
         android:text="Set NeoPixel color"
         android:id="@+id/textView24"
         android:background="#fb0505"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:layout_above="@+id/txtStringID"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/button2"
@@ -161,7 +161,7 @@
         android:layout_alignEnd="@+id/lblGreen" />
 
     <SeekBar
-        android:layout_width="250dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/barRed"
         android:max="255"
@@ -169,37 +169,41 @@
         android:progress="1"
         android:layout_below="@+id/textView24"
         android:layout_alignEnd="@+id/textView24"
-        android:layout_toEndOf="@+id/lblDelay" />
+        android:layout_toEndOf="@+id/lblDelay"
+        android:layout_alignParentEnd="false" />
 
     <SeekBar
-        android:layout_width="250dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/barBlue"
         android:max="255"
         android:progress="1"
         android:indeterminate="false"
         android:layout_below="@+id/barRed"
-        android:layout_alignStart="@+id/barRed" />
+        android:layout_alignStart="@+id/barRed"
+        android:layout_alignEnd="@+id/barRed" />
 
     <SeekBar
-        android:layout_width="250dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/barGreen"
         android:max="255"
         android:progress="1"
         android:indeterminate="false"
         android:layout_below="@+id/barBlue"
-        android:layout_alignStart="@+id/barBlue" />
+        android:layout_alignStart="@+id/barBlue"
+        android:layout_alignEnd="@+id/barBlue" />
 
     <SeekBar
-        android:layout_width="250dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/barDelay"
         android:max="255"
         android:progress="1"
         android:indeterminate="false"
         android:layout_below="@+id/barGreen"
-        android:layout_alignStart="@+id/barGreen" />
+        android:layout_alignStart="@+id/barGreen"
+        android:layout_alignEnd="@+id/barGreen" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -208,8 +212,8 @@
         android:text="Get NeoPixel string information"
         android:id="@+id/textView50"
         android:background="#fb0505"
-        android:textSize="16sp"
-        android:layout_below="@+id/textView11"
+        android:textSize="14sp"
+        android:layout_below="@+id/lblN"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/button2" />
 
@@ -259,6 +263,12 @@
         android:id="@+id/button2"
         android:onClick="onGet"
         android:layout_alignTop="@+id/lblStringID"
-        android:layout_toStartOf="@+id/lblRed"
-        android:layout_marginEnd="16dp" />
+        android:layout_toEndOf="@+id/txtStringID" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/button"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
