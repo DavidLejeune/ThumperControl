@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.Window;
 
 public class AboutActivity extends Activity {
-
+    // About activity
+    // Display simple information screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -5,7 +5,7 @@ package be.vives.student.david.d_rc;
  */
 public class NeoPixelColorStrobe {
 
-
+// Flashing color effect
 
     private int green;
     private int red;

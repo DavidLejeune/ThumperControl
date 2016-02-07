@@ -4,7 +4,7 @@ package be.vives.student.david.d_rc;
  * Created by David on 23/11/15.
  */
 public class NeoPixelColorEffect {
-
+// Fixed color effect
     private int green;
     private int red;
     private int blue;

@@ -11,14 +11,20 @@ import retrofit.http.Path;
  */
 public interface NeoPixelService {
 
+    // Interface for NeoPixel
+
     //Do NOT start path with slash!!
+
+    //receive neopixel info
     @GET("neopixels/strings/{id}")
     Call<NeoPixelString> getNeoPixelStringInfo(@Path("id") String stringID);
 
+
+    //post fixed color
     @POST("neopixels/strings/{id}")
     Call<StatusReport> setNeoPixelColor(@Path("id") String stringID, @Body NeoPixelColorEffect effect);
 
-
+    //post color strobe
     @POST ("neopixels/effects/strobe/{id}")
     Call<StatusReport> setNeoPixelStrobe(@Path("id") String stringID, @Body NeoPixelColorStrobe effect);
 

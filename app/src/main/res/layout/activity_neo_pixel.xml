@@ -91,20 +91,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Set NeoPixel color"
-        android:id="@+id/textView24"
+        android:text="@string/txtNeopixelTitle"
+        android:id="@+id/txtNeopixelColor"
         android:background="#fb0505"
         android:textSize="16sp"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/btnGet"
         android:layout_alignParentStart="true"
         android:layout_marginTop="38dp"
-        android:layout_alignEnd="@+id/textView50" />
+        android:layout_alignEnd="@+id/txtNeopixelStringTitle" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Red"
+        android:text="@string/lblRed"
         android:id="@+id/lblRed"
         android:textColor="#fb0606"
         android:layout_alignTop="@+id/barRed"
@@ -114,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Green"
+        android:text="@string/lblGreen"
         android:id="@+id/lblGreen"
         android:textColor="#3bda26"
         android:layout_marginTop="15dp"
@@ -124,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Blue"
+        android:text="@string/lblBlue"
         android:id="@+id/lblBlue"
         android:textColor="#141beb"
         android:layout_marginTop="15dp"
@@ -133,8 +133,8 @@
     <Button
         android:layout_width="220sp"
         android:layout_height="35sp"
-        android:text="POST"
-        android:id="@+id/button"
+        android:text="@string/btnPost"
+        android:id="@+id/btnPost"
         android:onClick="onPost"
         android:layout_below="@+id/barDelay"
         android:layout_toEndOf="@+id/lblNrOfPixels"
@@ -152,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Delay"
+        android:text="@string/lblDelay"
         android:id="@+id/lblDelay"
         android:textColor="@android:color/white"
         android:layout_marginTop="20dp"
@@ -167,7 +167,7 @@
         android:indeterminate="false"
         android:progress="1"
         android:layout_marginTop="14dp"
-        android:layout_below="@+id/textView24"
+        android:layout_below="@+id/txtNeopixelColor"
         android:layout_alignStart="@+id/barBlue" />
 
     <SeekBar
@@ -189,7 +189,7 @@
         android:indeterminate="false"
         android:layout_marginLeft="26dp"
         android:layout_alignTop="@+id/lblGreen"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_alignEnd="@+id/btnPost" />
 
     <SeekBar
         android:layout_width="250dp"
@@ -205,8 +205,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Get NeoPixel string information"
-        android:id="@+id/textView50"
+        android:text="@string/txtTitleNeopixelStrong"
+        android:id="@+id/txtNeopixelStringTitle"
         android:background="#fb0505"
         android:textSize="16sp"
         android:layout_below="@+id/lblN"
@@ -217,7 +217,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="String ID :"
+        android:text="@string/lblStringID"
         android:id="@+id/lblStringID"
         android:layout_alignBaseline="@+id/txtStringID"
         android:layout_alignBottom="@+id/txtStringID"
@@ -227,7 +227,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="# of pixels :"
+        android:text="@string/lblNrOfPixels"
         android:id="@+id/lblNrOfPixels"
         android:layout_alignBottom="@+id/txtNumberOfPixels" />
 
@@ -235,28 +235,28 @@
         android:layout_width="125sp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="0"
+        android:text="@string/txtStringID"
         android:id="@+id/txtStringID"
         android:inputType="phone"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/textView50"
+        android:layout_below="@+id/txtNeopixelStringTitle"
         android:layout_toEndOf="@+id/lblNrOfPixels" />
 
     <EditText
         android:layout_width="125sp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="0"
+        android:text="@string/txtNumberOfPixels"
         android:id="@+id/txtNumberOfPixels"
         android:inputType="phone"
-        android:layout_above="@+id/textView24"
+        android:layout_above="@+id/txtNeopixelColor"
         android:layout_alignStart="@+id/txtStringID" />
 
     <Button
         android:layout_width="60sp"
         android:layout_height="70sp"
-        android:text="GET"
-        android:id="@+id/button2"
+        android:text="@string/btnGet"
+        android:id="@+id/btnGet"
         android:onClick="onGet"
         android:layout_alignTop="@+id/txtStringID"
         android:layout_toEndOf="@+id/lblP" />

@@ -5,6 +5,7 @@ package be.vives.student.david.d_rc;
  */
 public class SpeedEffect {
 
+    // so we can retrieve the speed values
     int left_speed;
     int right_speed;
 

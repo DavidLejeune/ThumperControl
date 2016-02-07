@@ -50,8 +50,8 @@ public class ManActivity extends Activity {
     private int left_speed;
     private int right_speed;
 
-    private ImageView left_throttle;
-    private ImageView right_throttle;
+    private ImageView left_throttle; // Where whe slide our fingers
+    private ImageView right_throttle; // Where whe slide our fingers
 
     private Rect rectLeft;
     private Rect rectRight;
@@ -69,10 +69,10 @@ public class ManActivity extends Activity {
     private SparseArray<Point> mActivePointers;
 
     TextView txtThumperState;
-    TextView txtLeftSpeed;
-    TextView txtRightSpeed;
+    TextView txtLeftSpeed; // Display left speed
+    TextView txtRightSpeed; // Display right speed
 
-    ImageView imgDisplayNeo;
+    ImageView imgDisplayNeo; // Fixed color display of Neopixel when driving , no delay
 
 
     private Response<ThumperStatusReport> responsebattery;
@@ -82,12 +82,13 @@ public class ManActivity extends Activity {
 
         @Override
         public void run() {
+
+            // Run method so we will be listening continously for user input (sliding)
+
             leftIsHeld = false;
             rightIsHeld = false;
 
 
-            //txtLeftSpeed = (EditText) findViewById(R.id.txtSpeedLeft);
-            //txtRightSpeed = (EditText) findViewById(R.id.txtSpeedRight);
 
             for (int size = mActivePointers.size(), i = 0; i < size; i++) {
                 Point point = mActivePointers.valueAt(i);
@@ -104,9 +105,6 @@ public class ManActivity extends Activity {
                     }
                 }
             }
-
-            //txtLeftSpeed.setText(left_speed);
-            //txtRightSpeed.setText(right_speed);
 
 
 
@@ -125,7 +123,7 @@ public class ManActivity extends Activity {
                 right_throttle.setBackgroundColor(Color.DKGRAY);
                 right_speed = 0;
             }
-
+            // Simple text warning that' we are driving
             if (leftIsHeld || rightIsHeld) {
                 txtThumperState.setText("Hauling Ass");
                 txtThumperState.setTextColor(Color.BLUE);
@@ -134,18 +132,22 @@ public class ManActivity extends Activity {
                 txtThumperState.setTextColor(Color.WHITE);
             }
 
+            // display the speed
             txtLeftSpeed.setText(left_speed + "");
             txtRightSpeed.setText(right_speed + "");
 
             // Check if we can stop sending when user is not touching screen
             if (!isStopped || (left_speed != 0) || (right_speed != 0)) {
                 sendThumperSpeed();
+                // simple Neopixel color event for reaching certain speeds
                 if ((Math.abs(left_speed) + Math.abs(right_speed))/2 < 80)
                 {
+                    // Fixed color when driving resonably fast
                     sendColorEffect();
                 }
                 else
                 {
+                    // Flashing light when driving too fast
                     sendColorStrobe();
                 }
             }
@@ -153,6 +155,7 @@ public class ManActivity extends Activity {
             isStopped = (left_speed == 0 && right_speed == 0);
             if (isStopped)
             {
+                // Resetting the color after we stopped
                 color2 = Color.argb(00, 0, 0, 0);
                 imgDisplayNeo.setBackgroundColor(color2);
             }
@@ -168,8 +171,6 @@ public class ManActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_man);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Create the Handler object (on the main thread by default)
         refreshTimer = new Handler();
@@ -320,9 +321,9 @@ public class ManActivity extends Activity {
     }
 
     public void sendThumperSpeed() {
-        // Needs implementation
+        // implementation
 
-
+        // use speedeffect class to send speed from left and right slider
         SpeedEffect speedEffect = new SpeedEffect(left_speed,right_speed);
 
         Call<ThumperStatusReport> call = service.setSpeed(speedEffect);
@@ -333,12 +334,11 @@ public class ManActivity extends Activity {
             @Override
             public void onResponse(Response<ThumperStatusReport> response, Retrofit retrofit) {
                 if (response.body() != null) {
-
+                    // Display the batteryvoltage continously as we are driving
                     batteryvoltage = ((ThumperStatusReport) (response.body())).batteryvoltage();
                     TextView txtBatteryVoltage = ((TextView) findViewById(R.id.txtBatteryVoltage));
-                    txtBatteryVoltage.setText(batteryvoltage + "");
+                    txtBatteryVoltage.setText(batteryvoltage );
 
-                    //((EditText) findViewById(R.id.txtNumberOfPixels)).setText(str.getNumberOfPixels());
                 } else {
                     Log.e("REST", "Request returned no data");
                 }
@@ -373,11 +373,11 @@ public class ManActivity extends Activity {
 
 
     public void sendColorStrobe() {
-
         String id = getStringId();
-
-
+        // Here we will flash the light as we drive 'too fast'
+        // Neopixel strobe
         NeoPixelColorStrobe color = new NeoPixelColorStrobe(255, 0, 0, 50);
+        // Set color of the imageview and throttles to same color as strobe
         color2 = Color.argb(255, 255, 0, 0);
         imgDisplayNeo.setBackgroundColor(color2);
         left_throttle.setBackgroundColor(color2);
@@ -389,34 +389,28 @@ public class ManActivity extends Activity {
             @Override
             public void onResponse(Response<StatusReport> response, Retrofit retrofit) {
                 if (response.body() != null) {
-
                     StatusReport status = response.body();
                     Log.i("REST", response.toString());
                 } else {
-
                     Log.e("REST", "Request returned no data");
                 }
             }
-
             @Override
             public void onFailure(Throwable t) {
-
                 Log.i("REST", t.toString());
                 Toast.makeText(getApplicationContext(), "Request failed", Toast.LENGTH_SHORT).show();
-
             }
-
-
         });
-
     }
 
     public void sendColorEffect() {
 
         String id = getStringId();
+        // Here we will send a fixed neopixel color for certain speeds
+        // Neopixel color efect
 
-
-        if ((Math.abs(left_speed) + Math.abs(right_speed))/2 > 60)
+        // Send blue above 50
+        if ((Math.abs(left_speed) + Math.abs(right_speed))/2 > 50)
         {
 
             color = new NeoPixelColorEffect(0, 0, 255);
@@ -427,7 +421,8 @@ public class ManActivity extends Activity {
             right_throttle.setBackgroundColor(color2);
 
         }
-        else if (((Math.abs(left_speed) + Math.abs(right_speed))/2 < 60) && ((Math.abs(left_speed) + Math.abs(right_speed))/2 > 20))
+        // Send Green-Blue when between 50 and 20
+        else if (((Math.abs(left_speed) + Math.abs(right_speed))/2 < 50) && ((Math.abs(left_speed) + Math.abs(right_speed))/2 > 20))
         {
 
             color = new NeoPixelColorEffect(0, 255, 255);
@@ -437,6 +432,7 @@ public class ManActivity extends Activity {
             right_throttle.setBackgroundColor(color2);
 
         }
+        // Send Green for lowest speed
         else if ((Math.abs(left_speed) + Math.abs(right_speed))/2 < 20)
         {
 
@@ -448,39 +444,24 @@ public class ManActivity extends Activity {
         }
 
 
-
-
         Call<StatusReport> callSetColor = ledService.setNeoPixelColor(id, color);
-
         callSetColor.enqueue(new Callback<StatusReport>() {
             @Override
             public void onResponse(Response<StatusReport> response, Retrofit retrofit) {
                 if (response.body() != null) {
-
                     StatusReport status = response.body();
                     Log.i("REST", response.toString());
                 } else {
-
                     Log.e("REST", "Request returned no data");
                 }
             }
 
             @Override
             public void onFailure(Throwable t) {
-
                 Log.i("REST", t.toString());
                 Toast.makeText(getApplicationContext(), "Request failed", Toast.LENGTH_SHORT).show();
-
             }
-
-
         });
-
     }
-
-
-
-
-
 
 }

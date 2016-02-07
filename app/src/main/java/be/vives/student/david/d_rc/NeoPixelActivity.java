@@ -23,7 +23,8 @@ import retrofit.Retrofit;
 
 public class NeoPixelActivity extends Activity {
 
-
+    // Neopixel activity
+    // Here all the coloreffect magic is initiated
     private String base_url; // BAse url must end with a slash!!
     private NeoPixelService service;
     private Retrofit retrofit;
@@ -48,8 +49,6 @@ public class NeoPixelActivity extends Activity {
     {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String stringID = sharedPref.getString(SettingsActivity.PREF_KEY_STRINGID, "DavidL");
-        //TextView txtStringID = (TextView) findViewById(R.id.txtStringID);
-        //txtStringID.setText(stringID);
         return stringID;
 
     }
@@ -58,12 +57,12 @@ public class NeoPixelActivity extends Activity {
     private void initRetrofit()
 
     {
+        // Retrofit service initiation
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String serverip = sharedPref.getString(SettingsActivity.PREF_KEY_SERVERIP, "192.168.1.101");
         String servergate = sharedPref.getString(SettingsActivity.PREF_KEY_SERVERPORT, "3000");
 
         String stringID = getStringID();
-
 
 
         base_url = "http://" + serverip + ":" + servergate + "/"; // http://192.168.1.100:3000/";
@@ -83,9 +82,7 @@ public class NeoPixelActivity extends Activity {
 
     public void onGet(View view)
     {
-
-        //TextView txtStringID = (TextView) findViewById(R.id.txtStringID);
-        //String stringID = String.valueOf(txtStringID.getText().toString());
+        // Get info
         getStringID();
         String stringID = getStringID();
         Call<NeoPixelString> call = service.getNeoPixelStringInfo(stringID);
@@ -132,27 +129,18 @@ public class NeoPixelActivity extends Activity {
 
     public void onPost(View view)
     {
-
-        //TextView txtStringID = (TextView) findViewById(R.id.txtStringID);
-        //String stringID = String.valueOf(txtStringID.getText().toString());
+        // post
         getStringID();
         String stringID = getStringID();
 
 
-        //EditText txtRed = (EditText) findViewById(R.id.txtRed);
-        //EditText txtGreen = (EditText) findViewById(R.id.txtGreen);
-        //EditText txtBlue = (EditText) findViewById(R.id.txtBlue);
-        //EditText txtDelay = (EditText) findViewById(R.id.txtDelay);
         int iDelay = 0;
-        //int iRed = Integer.valueOf(txtRed.getText().toString());
-        //int iGreen = Integer.valueOf(txtGreen.getText().toString());
-        //int iBlue = Integer.valueOf(txtBlue.getText().toString());
 
+        // get the value of the colors from the slidebar/seekbars
         SeekBar barRed = (SeekBar) findViewById(R.id.barRed);
         SeekBar barBlue = (SeekBar) findViewById(R.id.barBlue);
         SeekBar barGreen = (SeekBar) findViewById(R.id.barGreen);
         SeekBar barDelay = (SeekBar) findViewById(R.id.barDelay);
-
         int iRed = barRed.getProgress();
         int iGreen = barGreen.getProgress();
         int iBlue = barBlue.getProgress();
@@ -180,6 +168,8 @@ public class NeoPixelActivity extends Activity {
         */
 
 
+        // determine if a color value is valid (between 0-255)
+        // this code is mostly redundant after switching from textboxes to limited seekbars
         boolean bool = false;
 
         if (iRed > 255)
@@ -208,29 +198,23 @@ public class NeoPixelActivity extends Activity {
         {
 
             // Do your job
-
+            // set color preview
             int color2 = Color.argb(255, iRed, iGreen, iBlue);
             TextView txtColor = (TextView) findViewById(R.id.txtColor);
             txtColor.setBackgroundColor(color2);
 
-
+            // here we look if we are dealing with a coloreffect or colorstrobe
             Call<StatusReport> callNeoPixel;
             if (iDelay != 0)
             {
-
-
                 NeoPixelColorStrobe effect = new NeoPixelColorStrobe(iRed, iGreen, iBlue , iDelay);
                 callNeoPixel = service.setNeoPixelStrobe(stringID, effect);
             }
             else
             {
-
-
                 NeoPixelColorEffect effect = new NeoPixelColorEffect(iRed, iGreen, iBlue);
                 callNeoPixel = service.setNeoPixelColor(stringID, effect);
             }
-
-
 
                 // Call enqueue to make an asynchronous request
                 callNeoPixel.enqueue(new Callback<StatusReport>() {
@@ -241,38 +225,17 @@ public class NeoPixelActivity extends Activity {
                             StatusReport status = response.body();
                             //Log.i("REST", response.toString());
                             //Log.i("REST", "Status = " + status.getStringId() + "\nCOUNT = " + str.getNumberOfPixels());
-                            //EditText txtNumberOfPixels = (EditText) findViewById(R.id.txtNumberOfPixels);
-
-                            //((EditText) findViewById(R.id.txtNumberOfPixels)).setText(str.getNumberOfPixels());
-
-                            // color = Color.argb(255, iRed, iGreen, iBlue);
-                            //TextView txtColor = (TextView) findViewById(R.id.txtColor);
-                            //txtColor.setBackgroundColor(color);
-
-
                         } else {
                             Log.e("REST", "Request returned no data");
                         }
                     }
-
                     @Override
                     public void onFailure(Throwable t) {
                         Log.i("REST", t.toString());
                         Toast.makeText(getApplicationContext(), "Request failed", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
-
-
-
-
             // End of job
-
-           // int color = Color.argb(255, iRed, iGreen, iBlue);
-           // TextView txtColor = (TextView) findViewById(R.id.txtColor);
-           // txtColor.setBackgroundColor(color);
-
         }
 
 

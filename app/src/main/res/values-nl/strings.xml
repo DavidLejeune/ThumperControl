@@ -1,0 +1,64 @@
+<resources>
+    <!-- Strings related base or activity -->
+    <string name="app_name">D-RC</string>
+    <string name="action_settings">Instellingen</string>
+    <string name="action_man">Manueel</string>
+    <string name="action_auto">Automatisch</string>
+    <string name="action_neopixel">NeoPixel</string>
+    <string name="action_about">Informatie</string>
+    <string name="title_activity_settings">Instellingen</string>
+
+
+
+    <!-- Strings related to Settings -->
+    <string name="pref_header_general">Algemeen</string>
+    <string name="pref_title_server_ip">Server IP</string>
+    <string name="pref_default_server_ip">192.168.1.101</string>
+    <string name="pref_title_server_port">Server Poort</string>
+    <string name="pref_default_server_port">3000</string>
+    <string name="pref_title_string_id">String ID</string>
+    <string name="pref_default_string_id">DavidL</string>
+    <string name="pref_title_display_name">Scherm naam</string>
+    <string name="pref_default_display_name">David Lejeune</string>
+
+
+    <!-- Strings related to Activity elements -->
+    <string name="subtitleManual">Start door the sliden</string>
+    <string name="txtSpeedTitle">Snelheid</string>
+    <string name="BatteryVoltage">Batterij Spanning</string>
+    <string name="titleAbout">David\'s RC</string>
+    <string name="txtAuthor">Auteur : D.Lejeune</string>
+    <string name="txtCreated">Gemaakt : Nov 2015</string>
+    <string name="txtAbout">Vergeet alle andere programma\'s . DIT is het BESTE programma OOIT. </string>
+    <string name="txtVives"><![CDATA[Gedreven door \nVives & NDW Libraries]]></string>
+    <string name="txtAutomatic">Automatisch (noob mode)</string>
+    <string name="titleDavid">@string/titleAbout</string>
+    <string name="txtManual">Manueel           (hardcore)</string>
+    <string name="txtManualMain">Automatisch          (noob mode)</string>
+    <string name="txtVivesMain">@string/txtVives</string>
+    <string name="txtSpeedLeft">000</string>
+    <string name="txtSpeed2">@string/txtSpeedTitle</string>
+    <string name="txtSpeedRight">@string/txtSpeedLeft</string>
+    <string name="txtBatteryVoltage">Battery Spanning</string>
+    <string name="txtBatteryVoltageTitle">\@string/BatteryVoltage</string>
+    <string name="txtTitleNeopixelStrong">Ontvang NeoPixel string informatie</string>
+    <string name="lblStringID">String ID :</string>
+    <string name="lblNrOfPixels"># pixels :</string>
+    <string name="txtStringID">0</string>
+    <string name="txtNumberOfPixels">0</string>
+    <string name="txtNeopixelTitle">Zet NeoPixel kleur</string>
+    <string name="lblRed">Rood</string>
+    <string name="lblBlue">Blauw</string>
+    <string name="lblGreen">Groen</string>
+    <string name="lblDelay">Delay</string>
+    <string name="btnGet">GET</string>
+    <string name="btnPost">POST</string>
+    <string name="txtAutomatic2">\@string/txtAutomatic</string>
+    <string name="txtAutomatic3">\@string/txtAutomatic</string>
+
+
+
+
+
+
+</resources>

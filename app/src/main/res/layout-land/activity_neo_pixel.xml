@@ -13,10 +13,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="N"
         android:id="@+id/lblN"
-        android:textColor="#dd3939"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/barRed"
-        android:layout_marginStart="19dp" />
+        android:layout_toStartOf="@+id/lblE"
+        android:textColor="#dd3939" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,9 +23,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="e"
         android:id="@+id/lblE"
-        android:textColor="#e1df36"
-        android:layout_above="@+id/textView24"
-        android:layout_toEndOf="@+id/lblN" />
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/lblO"
+        android:textColor="#e1df36" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,9 +33,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="o"
         android:id="@+id/lblO"
-        android:textColor="#362f57"
-        android:layout_above="@+id/textView24"
-        android:layout_toEndOf="@+id/lblE" />
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/lblP"
+        android:textColor="#362f57" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,8 +43,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="P"
         android:id="@+id/lblP"
-        android:layout_above="@+id/textView24"
-        android:layout_toEndOf="@+id/lblO" />
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/lblI" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,9 +52,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="i"
         android:id="@+id/lblI"
-        android:textColor="#a08178"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/lblP" />
+        android:layout_toStartOf="@+id/lblX"
+        android:textColor="#a08178" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,9 +62,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="x"
         android:id="@+id/lblX"
-        android:textColor="#fa041d"
-        android:layout_above="@+id/textView24"
-        android:layout_toEndOf="@+id/lblI" />
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/lblE2"
+        android:textColor="#fa041d" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,9 +72,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="e"
         android:id="@+id/lblE2"
-        android:textColor="#6a02fc"
-        android:layout_above="@+id/textView24"
-        android:layout_toEndOf="@+id/lblX" />
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/lblL"
+        android:textColor="#6a02fc" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,63 +82,61 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="l"
         android:id="@+id/lblL"
-        android:textColor="#96d767"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/lblE2" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="96dp"
+        android:textColor="#96d767" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Set NeoPixel color"
-        android:id="@+id/textView24"
+        android:text="@string/txtNeopixelTitle"
+        android:id="@+id/txtNeopixelColor"
         android:background="#fb0505"
-        android:textSize="14sp"
-        android:layout_above="@+id/txtStringID"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/button2"
-        android:layout_alignStart="@+id/lblRed" />
+        android:textSize="16sp"
+        android:layout_above="@+id/lblStringID"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/lblNrOfPixels" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Red"
+        android:text="@string/lblRed"
         android:id="@+id/lblRed"
         android:textColor="#fb0606"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/barRed"
+        android:layout_alignEnd="@+id/lblBlue" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Green"
+        android:text="@string/lblGreen"
         android:id="@+id/lblGreen"
         android:textColor="#3bda26"
-        android:layout_alignBaseline="@+id/lblNrOfPixels"
-        android:layout_alignBottom="@+id/lblNrOfPixels"
-        android:layout_alignStart="@+id/lblBlue" />
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/barBlue" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Blue"
+        android:text="@string/lblBlue"
         android:id="@+id/lblBlue"
         android:textColor="#141beb"
-        android:layout_below="@+id/lblStringID"
-        android:layout_alignStart="@+id/lblRed" />
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/barRed" />
 
     <Button
-        android:layout_width="150sp"
+        android:layout_width="220sp"
         android:layout_height="35sp"
-        android:text="POST"
-        android:id="@+id/button"
+        android:text="@string/btnPost"
+        android:id="@+id/btnPost"
         android:onClick="onPost"
-        android:layout_marginBottom="17dp"
-        android:layout_above="@+id/txtColor"
-        android:layout_toEndOf="@+id/lblBlue" />
+        android:layout_alignBottom="@+id/txtColor"
+        android:layout_toEndOf="@+id/lblRed" />
 
     <TextView
         android:layout_width="400sp"
@@ -147,128 +144,120 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/txtColor"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/lblDelay" />
+        android:layout_alignEnd="@+id/txtNeopixelStringTitle"
+        android:layout_alignStart="@+id/lblNrOfPixels"
+        android:layout_alignTop="@+id/barDelay" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Delay"
+        android:text="@string/lblDelay"
         android:id="@+id/lblDelay"
         android:textColor="@android:color/white"
-        android:layout_alignBottom="@+id/barDelay"
-        android:layout_alignEnd="@+id/lblGreen" />
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/barGreen"
+        android:layout_alignParentStart="true" />
 
     <SeekBar
-        android:layout_width="50dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/barRed"
         android:max="255"
         android:indeterminate="false"
         android:progress="1"
-        android:layout_below="@+id/textView24"
-        android:layout_alignEnd="@+id/textView24"
-        android:layout_toEndOf="@+id/lblDelay"
-        android:layout_alignParentEnd="false" />
+        android:layout_alignBottom="@+id/lblStringID"
+        android:layout_alignStart="@+id/barBlue" />
 
     <SeekBar
-        android:layout_width="50dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/barBlue"
         android:max="255"
         android:progress="1"
         android:indeterminate="false"
         android:layout_below="@+id/barRed"
-        android:layout_alignStart="@+id/barRed"
-        android:layout_alignEnd="@+id/barRed" />
+        android:layout_toStartOf="@+id/lblNrOfPixels" />
 
     <SeekBar
-        android:layout_width="50dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/barGreen"
         android:max="255"
         android:progress="1"
         android:indeterminate="false"
-        android:layout_below="@+id/barBlue"
-        android:layout_alignStart="@+id/barBlue"
-        android:layout_alignEnd="@+id/barBlue" />
+        android:layout_alignBottom="@+id/lblGreen"
+        android:layout_alignStart="@+id/barBlue" />
 
     <SeekBar
-        android:layout_width="50dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/barDelay"
         android:max="255"
         android:progress="1"
         android:indeterminate="false"
-        android:layout_below="@+id/barGreen"
-        android:layout_alignStart="@+id/barGreen"
-        android:layout_alignEnd="@+id/barGreen" />
+        android:layout_alignBottom="@+id/lblDelay"
+        android:layout_alignEnd="@+id/txtNeopixelColor" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Get NeoPixel string information"
-        android:id="@+id/textView50"
+        android:text="@string/txtTitleNeopixelStrong"
+        android:id="@+id/txtNeopixelStringTitle"
         android:background="#fb0505"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_below="@+id/lblN"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/lblStringID" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="String ID :"
+        android:text="@string/lblStringID"
         android:id="@+id/lblStringID"
-        android:layout_alignBaseline="@+id/txtStringID"
-        android:layout_alignBottom="@+id/txtStringID"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/txtNeopixelStringTitle"
+        android:layout_toStartOf="@+id/txtStringID" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="# of pixels :"
+        android:text="@string/lblNrOfPixels"
         android:id="@+id/lblNrOfPixels"
-        android:layout_alignBottom="@+id/txtNumberOfPixels" />
+        android:layout_alignBaseline="@+id/txtNumberOfPixels"
+        android:layout_alignBottom="@+id/txtNumberOfPixels"
+        android:layout_toStartOf="@+id/lblN" />
 
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="100sp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="0"
+        android:text="@string/txtStringID"
         android:id="@+id/txtStringID"
         android:inputType="phone"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/textView50"
+        android:layout_alignBaseline="@+id/lblStringID"
+        android:layout_alignBottom="@+id/lblStringID"
         android:layout_toEndOf="@+id/lblNrOfPixels" />
 
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="100sp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="0"
+        android:text="@string/txtNumberOfPixels"
         android:id="@+id/txtNumberOfPixels"
         android:inputType="phone"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_toEndOf="@+id/lblNrOfPixels" />
+        android:layout_below="@+id/txtStringID"
+        android:layout_alignStart="@+id/txtStringID" />
 
     <Button
         android:layout_width="60sp"
-        android:layout_height="70dp"
-        android:text="GET"
-        android:id="@+id/button2"
+        android:layout_height="70sp"
+        android:text="@string/btnGet"
+        android:id="@+id/btnGet"
         android:onClick="onGet"
-        android:layout_alignTop="@+id/lblStringID"
+        android:layout_alignTop="@+id/txtStringID"
         android:layout_toEndOf="@+id/txtStringID" />
-
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_above="@+id/button"
-        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+    // Main Activity of the app
+    // Let's the user navigate to different activities
 
 
 
@@ -18,10 +20,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
     }
 
     @Override
@@ -76,35 +74,35 @@ public class MainActivity extends Activity {
 
     public void onAboutClick(View view)
     {
-        //android developer guidelines
+        // Display the About activity
         Intent about = new Intent(this, AboutActivity.class);
         //Toast.makeText(this, "Showing About activity" , Toast.LENGTH_SHORT).show();
         startActivity(about);
     }
     public void onAutoClick(View view)
     {
-        //android developer guidelines
+        // Display the Automatic drive activity
         Intent auto = new Intent(this, AutoActivity.class);
         //Toast.makeText(this, "Showing Auto activity" , Toast.LENGTH_SHORT).show();
         startActivity(auto);
     }
     public void onManClick(View view)
     {
-        //android developer guidelines
+        // Display the Manual drive activity
         Intent man = new Intent(this, ManActivity.class);
-        //Toast.makeText(this, "Showing Man activity" , Toast.LENGTH_SHORT).show();
         startActivity(man);
     }
     public void onNeopixelClick(View view)
     {
-        //android developer guidelines
+        // Display the Neopixel activity
         Intent neo = new Intent(this, NeoPixelActivity.class);
-        //Toast.makeText(this, "Showing Man activity" , Toast.LENGTH_SHORT).show();
         startActivity(neo);
     }
 
     public void onSettingClick(View view)
     {
+        // Obsolete, was for when my theme didn't allow the actionbar
+        // Theme problem was resolved
         Toast.makeText(this, "You want settings man" , Toast.LENGTH_SHORT).show();
     }
 

@@ -9,7 +9,7 @@ import retrofit.http.POST;
  */
 public interface SpeedService {
 
-
+    // interface to make the thumper drive at certain speed
     @POST("/speed")
     Call<ThumperStatusReport> setSpeed(@Body SpeedEffect effect);
 

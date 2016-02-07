@@ -7,6 +7,10 @@ import com.google.gson.annotations.SerializedName;
  * Created by David on 23/11/15.
  */
 public class NeoPixelString {
+
+
+
+
     //@Expose = an annotiation tht indicates this member
     //should be exposed for JSON serialization or deserialization
     //@SerializedName annotates the name of the attribute in the json response string

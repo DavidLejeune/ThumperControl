@@ -8,8 +8,8 @@
     tools:context="be.vives.student.david.d_rc.AboutActivity">
 
     <ImageView
-        android:layout_width="50sp"
-        android:layout_height="50sp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageView"
         android:src="@drawable/info"
         android:layout_alignParentTop="true"
@@ -17,11 +17,11 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="David&apos;s RC"
+        android:text="@string/titleAbout"
         android:id="@+id/textView2"
-        android:textSize="20dp"
+        android:textSize="44dp"
         android:textColor="#5134e0"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
@@ -30,41 +30,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Author : D.Lejeune"
+        android:text="@string/txtAuthor"
         android:id="@+id/textView3"
         android:textColor="#f1600c"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:textSize="14dp" />
+        android:layout_above="@+id/textView4"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Created : Nov 2015"
+        android:text="@string/txtCreated"
         android:id="@+id/textView4"
         android:textColor="#f1600c"
-        android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:textSize="14dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Forget all other programs. THIS is the GREATEST program EVER . Accept no substitute !!"
+        android:text="@string/txtAbout"
         android:id="@+id/textView5"
         android:typeface="monospace"
         android:textAlignment="center"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
         android:layout_below="@+id/textView4"
-        android:layout_alignParentEnd="false"
-        android:textSize="16dp" />
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:id="@+id/imageView8"
+        android:id="@+id/imageView9"
         android:src="@drawable/vives"
         android:clickable="true"
         android:layout_alignParentBottom="true"
@@ -74,12 +72,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Powered by \nVives &amp; NDW Libraries"
-        android:id="@+id/textView16"
+        android:text="@string/txtVives"
+        android:id="@+id/textView17"
         android:textSize="9sp"
         android:typeface="monospace"
         android:textColor="#fa3838"
-        android:layout_marginRight="24dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/imageView8" />
+        android:layout_alignBottom="@+id/imageView9"
+        android:layout_toEndOf="@+id/imageView9" />
 </RelativeLayout>
